@@ -1,5 +1,7 @@
 package com.coderli.yami.config;
 
+import com.coderli.yami.common.util.PathUtil;
+
 /**
  * Yami配置项
  *
@@ -18,8 +20,9 @@ public class YamiConfig {
     }
 
     public void setSitePath(String sitePath) {
-        this.sitePath = sitePath;
+        this.sitePath = PathUtil.appendSepratorIfNeed(sitePath);
     }
+
 
     /**
      * 返回配置实例
