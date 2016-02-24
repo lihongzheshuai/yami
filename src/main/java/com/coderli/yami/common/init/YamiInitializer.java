@@ -1,5 +1,7 @@
 package com.coderli.yami.common.init;
 
+import com.coderli.yami.config.ConfigInitializer;
+import com.coderli.yami.ui.UIInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,7 +20,12 @@ public class YamiInitializer {
 
     private static final List<Initializer> initializers = new ArrayList<>();
 
-    public static void init() {
+    static {
+        initializers.add(new ConfigInitializer());
+        initializers.add(new UIInitializer());
+    }
+
+    public static void init() throws Exception {
         for (Initializer initializer : initializers) {
             logger.debug("执行初始化器:[{}].", initializer.getClass().getName());
             initializer.init();

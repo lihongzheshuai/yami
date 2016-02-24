@@ -8,6 +8,8 @@ package com.coderli.yami.config;
  */
 public class YamiConfig {
 
+    private static final YamiConfig config = new YamiConfig();
+
     // Jekyll网站根路径
     private String sitePath;
 
@@ -17,5 +19,14 @@ public class YamiConfig {
 
     public void setSitePath(String sitePath) {
         this.sitePath = sitePath;
+    }
+
+    /**
+     * 返回配置实例
+     *
+     * @return
+     */
+    public static YamiConfig getConfig() {
+        return config;
     }
 }

@@ -11,6 +11,9 @@ public class MainBoard {
     private JList list1;
     private JPanel panel1;
 
+    MainBoard() {
+    }
+
     public JList getList1() {
         return list1;
     }
