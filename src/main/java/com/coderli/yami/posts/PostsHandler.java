@@ -13,7 +13,7 @@ public interface PostsHandler {
     /**
      * 获取所有博文列表
      *
-     * @return
+     * @return 博文列表, 没有的时候返回空列表.
      */
     List<Post> listPosts();
 
