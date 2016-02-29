@@ -12,15 +12,15 @@ import java.util.List;
  * @author li.hzh
  * @date 16/2/24
  */
-public class DefaultPostsHandler implements PostsHandler {
+public class DefaultPostHandler implements PostHandler {
 
-    private static Logger logger = LoggerFactory.getLogger(DefaultPostsHandler.class);
+    private static Logger logger = LoggerFactory.getLogger(DefaultPostHandler.class);
     private static final String RELATIVE_PATH = "_posts";
     private YamiConfig config = YamiConfig.getConfig();
     private String postsPath;
     private PostConverter postConverter = new DefaultPostConverter();
 
-    public DefaultPostsHandler() {
+    public DefaultPostHandler() {
         this.postsPath = config.getSitePath().concat(RELATIVE_PATH);
     }
 
@@ -35,6 +35,12 @@ public class DefaultPostsHandler implements PostsHandler {
         File[] postFiles = listPostFiles();
         return postConverter.convert(postFiles[postFiles.length - 1]);
     }
+
+    @Override
+    public Post autoNewPost() {
+        return null;
+    }
+
 
     private File[] listPostFiles() {
         File postDir = getPostDirectory();

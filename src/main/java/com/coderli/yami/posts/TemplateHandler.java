@@ -16,4 +16,11 @@ public interface TemplateHandler {
      */
     Template generateTemplate(Post post) throws Exception;
 
+    /**
+     * 自动根据最后一篇文章生成模板.
+     *
+     * @return
+     * @throws Exception
+     */
+    Template autoGenerateFromLastPost() throws Exception;
 }

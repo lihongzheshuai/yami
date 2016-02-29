@@ -8,7 +8,7 @@ import java.util.List;
  * @author li.hzh
  * @date 16/2/24
  */
-public interface PostsHandler {
+public interface PostHandler {
 
     /**
      * 获取所有博文列表
@@ -24,4 +24,11 @@ public interface PostsHandler {
      * @return
      */
     Post getLastPost();
+
+    /**
+     * 自动根据最后一个博文作为模板,生成新的博文
+     *
+     * @return 生成的新的博文
+     */
+    Post autoNewPost();
 }

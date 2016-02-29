@@ -1,8 +1,8 @@
 package com.coderli.yami.test.post;
 
-import com.coderli.yami.posts.DefaultPostsHandler;
+import com.coderli.yami.posts.DefaultPostHandler;
 import com.coderli.yami.posts.Post;
-import com.coderli.yami.posts.PostsHandler;
+import com.coderli.yami.posts.PostHandler;
 import com.coderli.yami.test.BaseYamiTest;
 import org.junit.Test;
 
@@ -14,11 +14,11 @@ import java.util.List;
  */
 public class DefaultPostHandlerTest extends BaseYamiTest {
 
-    private PostsHandler postsHandler = new DefaultPostsHandler();
+    private PostHandler postHandler = new DefaultPostHandler();
 
     @Test
     public void testListPosts() {
-        List<Post> postList = postsHandler.listPosts();
+        List<Post> postList = postHandler.listPosts();
         for (Post post : postList) {
             System.out.println(post.getName());
         }
@@ -26,7 +26,7 @@ public class DefaultPostHandlerTest extends BaseYamiTest {
 
     @Test
     public void testGetLastPost() {
-        Post post = postsHandler.getLastPost();
+        Post post = postHandler.getLastPost();
         System.out.println(post.getName());
     }
 

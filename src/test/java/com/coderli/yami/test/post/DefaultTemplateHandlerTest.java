@@ -1,9 +1,6 @@
 package com.coderli.yami.test.post;
 
-import com.coderli.yami.posts.DefaultPostsHandler;
-import com.coderli.yami.posts.DefaultTemplateHandler;
-import com.coderli.yami.posts.PostsHandler;
-import com.coderli.yami.posts.TemplateHandler;
+import com.coderli.yami.posts.*;
 import com.coderli.yami.test.BaseYamiTest;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +12,7 @@ import org.junit.Test;
 public class DefaultTemplateHandlerTest extends BaseYamiTest {
 
     private TemplateHandler templateHandler = new DefaultTemplateHandler();
-    private PostsHandler postsHandler = new DefaultPostsHandler();
+    private PostHandler postHandler = new DefaultPostHandler();
 
     @Before
     public void init() {
@@ -24,7 +21,8 @@ public class DefaultTemplateHandlerTest extends BaseYamiTest {
 
     @Test
     public void testGenerateTemplate() throws Exception {
-        templateHandler.generateTemplate(postsHandler.getLastPost());
+        Template template = templateHandler.generateTemplate(postHandler.getLastPost());
+        System.out.println(template.getTemplateHeaders());
     }
 
 }
