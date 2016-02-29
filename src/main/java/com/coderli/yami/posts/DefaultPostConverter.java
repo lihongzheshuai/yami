@@ -1,5 +1,7 @@
 package com.coderli.yami.posts;
 
+import com.coderli.yami.common.util.Asserts;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,12 +19,20 @@ public class DefaultPostConverter implements PostConverter {
             return posts;
         }
         for (File postFile : files) {
-            Post post = new Post();
-            post.setName(postFile.getName());
-            post.setPath(postFile.getAbsolutePath());
-            posts.add(post);
+            posts.add(convert(postFile));
         }
         return posts;
     }
+
+    @Override
+    public Post convert(File file) {
+        Asserts.assertNotNull(file);
+        Post post = new Post();
+        post.setName(file.getName());
+        post.setPath(file.getAbsolutePath());
+        post.setRawFile(file);
+        return post;
+    }
+
 
 }

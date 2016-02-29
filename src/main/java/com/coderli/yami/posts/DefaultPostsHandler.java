@@ -26,11 +26,20 @@ public class DefaultPostsHandler implements PostsHandler {
 
     @Override
     public List<Post> listPosts() {
-        File postDir = getPostDirectory();
-        File[] postFiles = postDir.listFiles();
+        File[] postFiles = listPostFiles();
         return postConverter.convert(postFiles);
     }
 
+    @Override
+    public Post getLastPost() {
+        File[] postFiles = listPostFiles();
+        return postConverter.convert(postFiles[postFiles.length - 1]);
+    }
+
+    private File[] listPostFiles() {
+        File postDir = getPostDirectory();
+        return postDir.listFiles();
+    }
 
     private File getPostDirectory() {
         File dir = new File(postsPath);

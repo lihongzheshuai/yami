@@ -1,5 +1,6 @@
 package com.coderli.yami.posts;
 
+import java.io.File;
 import java.util.Date;
 
 /**
@@ -16,6 +17,16 @@ public class Post {
     private String path;
     //发表日期
     private Date postDate;
+    //文件引用
+    private File rawFile;
+
+    public File getRawFile() {
+        return rawFile;
+    }
+
+    public void setRawFile(File rawFile) {
+        this.rawFile = rawFile;
+    }
 
     public String getName() {
         return name;

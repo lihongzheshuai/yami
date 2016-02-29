@@ -19,9 +19,15 @@ public class DefaultPostHandlerTest extends BaseYamiTest {
     @Test
     public void testListPosts() {
         List<Post> postList = postsHandler.listPosts();
-        for(Post post : postList) {
+        for (Post post : postList) {
             System.out.println(post.getName());
         }
+    }
+
+    @Test
+    public void testGetLastPost() {
+        Post post = postsHandler.getLastPost();
+        System.out.println(post.getName());
     }
 
 

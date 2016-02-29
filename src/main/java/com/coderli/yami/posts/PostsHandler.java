@@ -18,4 +18,10 @@ public interface PostsHandler {
     List<Post> listPosts();
 
 
+    /**
+     * 获取最近发表的博文
+     *
+     * @return
+     */
+    Post getLastPost();
 }

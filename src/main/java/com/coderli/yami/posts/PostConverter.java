@@ -19,4 +19,13 @@ public interface PostConverter {
      */
     List<Post> convert(File[] files);
 
+    /**
+     * 单一博文模型转换
+     *
+     * @param file
+     * @return
+     */
+    Post convert(File file);
+
+
 }
