@@ -30,5 +30,7 @@ public interface PostHandler {
      *
      * @return 生成的新的博文
      */
-    Post autoNewPost();
+    Post autoNewPost(String fileName, String title, String... tags) throws Exception;
+
+
 }
