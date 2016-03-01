@@ -32,8 +32,8 @@ public class DefaultPostHandlerTest extends BaseYamiTest {
 
     @Test
     public void testAutoNewPost() throws Exception {
-        String fileName = "chong gou and jian hua";
-        String title = "重构和简化";
+        String fileName = "chong gou jian hua and new mouse";
+        String title = "重构,简化和新鼠标";
         String[] tags = new String[]{"OneCoder", "日记"};
         postHandler.autoNewPost(fileName, title, tags);
     }
