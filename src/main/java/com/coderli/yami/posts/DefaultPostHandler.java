@@ -120,7 +120,7 @@ public class DefaultPostHandler implements PostHandler {
     }
 
     private String generateLine(String key, String value) {
-        return key + PostConstants.HEADER_CONTENT_SEPERATOR + value;
+        return key + PostConstants.HEADER_CONTENT_SEPERATOR + " " + value;
     }
 
     private String generatePostName(String title) {
