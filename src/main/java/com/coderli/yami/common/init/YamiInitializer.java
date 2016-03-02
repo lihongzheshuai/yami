@@ -22,7 +22,7 @@ public class YamiInitializer {
 
     static {
         initializers.add(new ConfigInitializer());
-        initializers.add(new UIInitializer());
+//        initializers.add(new UIInitializer());
     }
 
     public static void init() throws Exception {
