@@ -1,13 +1,15 @@
 package com.coderli.yami;
 
-import com.coderli.yami.common.constant.PostConstants;
 import com.coderli.yami.common.init.YamiInitializer;
 import com.coderli.yami.posts.DefaultPostHandler;
+import com.coderli.yami.posts.Post;
 import com.coderli.yami.posts.PostHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.awt.*;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Date;
 
@@ -42,8 +44,14 @@ public class YamiLauncher {
         }
         String[] tags = tagLine.split(",");
         PostHandler postHandler = new DefaultPostHandler();
-        postHandler.autoNewPost(fileName, title, tags);
+        Post post = postHandler.autoNewPost(fileName, title, tags);
+        logger.info("创建文件[{}]成功.", post.getName());
+        // 打开文件
+        openFile(post);
+    }
 
+    private static void openFile(Post post) throws IOException {
+        Desktop.getDesktop().open(post.getRawFile());
     }
 
 }
