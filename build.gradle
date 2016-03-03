@@ -1,11 +1,19 @@
+plugins {
+    id "us.kirchmeier.capsule" version "1.0.2"
+}
 group 'com.coderli'
 version '0.1'
 
 apply plugin: 'java'
 
+task fatCapsule(type: FatCapsule) {
+    applicationClass 'com.coderli.yami.YamiLauncher'
+}
+
 repositories {
     mavenCentral()
 }
+
 
 dependencies {
     compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.5'
