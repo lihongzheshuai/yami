@@ -18,7 +18,7 @@ public class PostConstants {
     public static final String HEADER_SEPERATOR = "---";
     public static final String HEADER_CONTENT_SEPERATOR = ":";
 
-    public static final String HEADER_DATE_PATTERN = "yyyy-MM-dd hh:mm:ss";
+    public static final String HEADER_DATE_PATTERN = "yyyy-MM-dd HH:mm:ss +0800";
 
     public static final String POST_FILE_EXT = ".md";
 
