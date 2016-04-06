@@ -1,6 +1,7 @@
 package com.coderli.yami;
 
 import com.coderli.yami.common.init.YamiInitializer;
+import com.coderli.yami.config.YamiConfig;
 import com.coderli.yami.posts.DefaultPostHandler;
 import com.coderli.yami.posts.Post;
 import com.coderli.yami.posts.PostHandler;
@@ -25,6 +26,7 @@ public class YamiLauncher {
 
     public static void main(String[] args) throws Exception {
         YamiInitializer.init();
+        overrideWithArgs(args);
         logger.info("启动Yami应用.{}", new Date());
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         String fileName = null;
@@ -48,6 +50,14 @@ public class YamiLauncher {
         logger.info("创建文件[{}]成功.", post.getName());
         // 打开文件
         openFile(post);
+    }
+
+    //TODO 不好的实现. 因为是在初始化后再次覆盖了site path的配置
+    private static void overrideWithArgs(String[] args) {
+        if (args != null && args.length > 0) {
+            String sitePath = args[0];
+            YamiConfig.getConfig().setSitePath(sitePath);
+        }
     }
 
     private static void openFile(Post post) throws IOException {
